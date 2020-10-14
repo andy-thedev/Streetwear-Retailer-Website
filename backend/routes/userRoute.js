@@ -64,9 +64,34 @@ router.post("/createadmin", async (req, res) => {
     }
 })
 
+router.put("/:id", isAuth, isAdmin, async(req, res) => {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    if (user){
+        user.name = req.body.name;
+        user.email = req.body.email;
+        user.password = req.body.password;
+        const updatedUser = await user.save();
+        if (updatedUser) {
+            return res.status(200).send({message: 'User Updated.', data: updatedProduct});
+        }
+    }
+    return res.status(500).send({message: 'Error in Updating User.'});
+});
+
 router.get("/", isAuth, isAdmin, async(req, res) => {
     const users = await User.find({});
     res.send(users);
 });
+
+router.delete("/:id", isAuth, isAdmin, async(req, res) => {
+    const deletedUser = await User.findById(req.params.id);
+    if (deletedUser) {
+        await deletedUser.remove();
+        res.send({message: "User Deleted"});
+    } else {
+        res.send("Error in Deletion.");
+    }
+})
 
 export default router;

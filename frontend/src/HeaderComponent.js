@@ -25,6 +25,10 @@ function HeaderComponent(props) {
                     '' : ''
             }
             {
+                props.userInfo ? props.userInfo.isAdmin ? <Link to="/products">Products</Link> :
+                    '' : ''
+            }
+            {
                 props.userInfo ? <Link to="/profile">{props.userInfo.name}</Link> :
                     <Link to="/signin">Sign In</Link>
             }
