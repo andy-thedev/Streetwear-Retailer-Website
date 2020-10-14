@@ -64,7 +64,7 @@ router.post("/createadmin", async (req, res) => {
     }
 })
 
-router.put("/:id", isAuth, isAdmin, async(req, res) => {
+router.put("/:id", isAuth, async(req, res) => {
     const userId = req.params.id;
     const user = await User.findById(userId);
     if (user){
@@ -72,11 +72,16 @@ router.put("/:id", isAuth, isAdmin, async(req, res) => {
         user.email = req.body.email;
         user.password = req.body.password;
         const updatedUser = await user.save();
-        if (updatedUser) {
-            return res.status(200).send({message: 'User Updated.', data: updatedProduct});
-        }
+        res.send({
+            _id: updatedUser.id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isAdmin: updatedUser.isAdmin,
+            token: getToken(updatedUser),
+        });
+    } else {
+        return res.status(404).send({message: 'User not Found.'});
     }
-    return res.status(500).send({message: 'Error in Updating User.'});
 });
 
 router.get("/", isAuth, isAdmin, async(req, res) => {

@@ -55,6 +55,9 @@ const updateUser  = (user) => async (dispatch, getState) => {
             },
         });
         dispatch({type: USER_UPDATE_SUCCESS, payload: data});
+        if (userInfo._id === user._id) {
+            Cookie.set('userInfo', JSON.stringify(data));
+        }
     } catch (error) {
         dispatch({type: USER_UPDATE_FAIL, payload: error.message});
     }

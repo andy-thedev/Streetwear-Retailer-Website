@@ -11,6 +11,7 @@ import UsersScreen from './screens/UsersScreen';
 import { useDispatch, useSelector } from 'react-redux';
 import {logout} from './actions/userActions';
 import HeaderComponent from './HeaderComponent';
+import ProfileScreen from './screens/ProfileScreen';
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
             <Route path="/" exact={true} component={HomeScreen} />
             <Route path="/createadmin" component = {RegisterScreen}/>
             <Route path="/users" component={UsersScreen} />
+            <Route path="/profile" component={ProfileScreen} userInfo = {userInfo} />
           </div>
         </main>
         <footer className="footer">

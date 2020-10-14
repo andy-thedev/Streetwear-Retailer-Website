@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link} from 'react-router-dom';
 import {logout} from './actions/userActions';
@@ -13,13 +13,14 @@ function HeaderComponent(props) {
         window.location = '/';
     }
 
+
     return <header className="header">
         <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
             <Link to="/">Company</Link>
         </div>
         <div className="header-links">
-            <a href="/cart/cart.html">Cart</a>
+            <Link to="/cart">Cart</Link>
             {
                 props.userInfo ? props.userInfo.isAdmin ? <Link to="/users">Users</Link> :
                     '' : ''
