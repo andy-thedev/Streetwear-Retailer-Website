@@ -29,11 +29,13 @@ function App() {
       <div className="grid-container">
         <HeaderComponent userInfo ={userInfo}/>
         <aside className="sidebar">
-          <h3>Shopping Categories</h3>
-          <ul>
+          <div className="sidebar-title">
+            <h3>SHOP BY CATEGORY</h3>
+          </div>
+          <ul className="sidebar-category-list" id="sidebar">
             <li>
-              <a href="index.html">Pants</a>
               <button className="sidebar-close-button" onClick={closeMenu}>x</button>
+              <a href="index.html">Pants</a>
             </li>
             <li>
               <a href="index.html">Shirts</a>

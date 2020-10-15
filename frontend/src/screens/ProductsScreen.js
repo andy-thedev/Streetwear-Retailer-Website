@@ -48,9 +48,6 @@ function ProductsScreen(props) {
         setBrand(product.brand);
         setCategory(product.category);
         setCountInStock(product.countInStock);
-        if (product.imageData) {
-            setImageData(product.imageData);
-        }
     }
 
     const submitHandler = (e) => {
@@ -81,7 +78,6 @@ function ProductsScreen(props) {
         <img src={file.preview} className="dragndrop-image" alt = "preview"/>
         </div>
         <div>{file.name}</div>
-        <div>{typeof imageData}</div>
     </div>
     ))
 
@@ -116,7 +112,7 @@ function ProductsScreen(props) {
                         <div className="dragndrop">
                             <div {...getRootProps()}>
                                 <input type='file' {...getInputProps()}/>
-                                <p>Drop files here</p>
+                                <p>Drop files/Click to Browse</p>
                             </div>
                             <div>{images}</div>
                         </div>

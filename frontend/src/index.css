@@ -144,19 +144,29 @@ a:hover {
 .sidebar {
   position: fixed;
   transition: all .5s;
-  transform: translateX(-30rem);
+  transform: translateX(-60rem);
   width: 30rem;
   background-color: #f0f0f0;
   height: 100%;
 }
 
+.sidebar-title {
+  padding-left: 2rem;
+  padding-top: 0.1rem;
+}
+
+.sidebar-category-list {
+  list-style-type: none;
+}
+
 .sidebar.open {
   transform: translateX(0);
+  box-shadow: 0 0 0 100000px rgba(0,0,0,.75);
 }
 
 .sidebar-close-button {
-  border-radius: 50%;
-  border: .1rem #000000 solid;
+  background-color: transparent;
+  color: #f0f0f0;
   width: 3rem;
   height: 3rem;
   padding: .5rem;
@@ -164,8 +174,8 @@ a:hover {
   padding-top: 0;
   cursor: pointer;
   position: absolute;
-  right: .5rem;
-  top: 1.5rem;
+  right: -3rem;
+  top: 0rem;
 }
 
 /* Product Details */
