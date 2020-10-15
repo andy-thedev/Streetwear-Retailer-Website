@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useDropzone } from "react-dropzone";
 
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
+import { set } from 'js-cookie';
 
 function ProductsScreen(props) {
     const [imageData, setImageData] = useState([]);
@@ -50,11 +51,17 @@ function ProductsScreen(props) {
         setCountInStock(product.countInStock);
     }
 
+    const closeModal = () => {
+        setModalVisible(false);
+        setImageData([]);
+    }
+
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveProduct({
             _id: id, name, price, image, brand, category, countInStock, description, imageData
         }));
+        setImageData([]);
     }
 
     const deleteHandler = (product) => {
@@ -136,7 +143,7 @@ function ProductsScreen(props) {
                             <button type="submit" className="button primary">{id ? 'Update' : 'Create'}</button>
                         </li>
                         <li>
-                            <button type="button" onClick={() => setModalVisible(false)} className="button secondary">Back</button>
+                            <button type="button" onClick={() => closeModal()} className="button secondary">Back</button>
                         </li>
                     </ul>
                 </form>
