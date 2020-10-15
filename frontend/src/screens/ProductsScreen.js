@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Convert } from 'mongo-image-converter';
 import { useSelector, useDispatch } from 'react-redux';
-import { signin } from '../actions/userActions';
+import { useDropzone } from "react-dropzone";
+
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
-import DndComponent from '../components/DndComponent';
 
 function ProductsScreen(props) {
+    const [imageData, setImageData] = useState([]);
     const [modalVisible, setModalVisible] = useState(false);
+
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -46,18 +48,42 @@ function ProductsScreen(props) {
         setBrand(product.brand);
         setCategory(product.category);
         setCountInStock(product.countInStock);
+        if (product.imageData) {
+            setImageData(product.imageData);
+        }
     }
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveProduct({
-            _id: id, name, price, image, brand, category, countInStock, description
+            _id: id, name, price, image, brand, category, countInStock, description, imageData
         }));
     }
 
     const deleteHandler = (product) => {
         dispatch(deleteProduct(product._id));
     }
+
+    const {getRootProps, getInputProps} = useDropzone({
+        accept: "image/*",
+        onDrop: (acceptedFiles) => {
+          setImageData(
+            acceptedFiles.map((file) => Object.assign(file, {
+              preview: URL.createObjectURL(file)
+            }))
+          )
+        }
+      })
+
+    const images = imageData.map((file) => (
+    <div key={file.name}>
+        <div>
+        <img src={file.preview} className="dragndrop-image" alt = "preview"/>
+        </div>
+        <div>{file.name}</div>
+        <div>{typeof imageData}</div>
+    </div>
+    ))
 
     return (<div className="content content-margined">
         <div className="product-header">
@@ -87,7 +113,13 @@ function ProductsScreen(props) {
                             <label htmlFor="image">Image</label>
                             <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)}></input>
                         </li>
-                        <DndComponent/>
+                        <div className="dragndrop">
+                            <div {...getRootProps()}>
+                                <input type='file' {...getInputProps()}/>
+                                <p>Drop files here</p>
+                            </div>
+                            <div>{images}</div>
+                        </div>
                         <li>
                             <label htmlFor="brand">Brand</label>
                             <input type="text" name="brand" value={brand} id="brand" onChange={(e) => setBrand(e.target.value)}></input>

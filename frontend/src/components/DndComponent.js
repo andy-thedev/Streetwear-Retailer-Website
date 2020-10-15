@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {Convert} from 'mongo-image-converter';
 
 import {useDropzone} from "react-dropzone";
 
