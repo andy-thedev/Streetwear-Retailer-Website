@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Route, Link} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -9,8 +9,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ProductsScreen from './screens/ProductsScreen';
 import UsersScreen from './screens/UsersScreen';
 import { useDispatch, useSelector } from 'react-redux';
-import {logout} from './actions/userActions';
-import HeaderComponent from './HeaderComponent';
+import HeaderComponent from './components/HeaderComponent';
 import ProfileScreen from './screens/ProfileScreen';
 
 
@@ -21,13 +20,6 @@ function App() {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
 
-  const handleLogout = () => {
-    dispatch(logout());
-  }
-
-  const openMenu = () => {
-    document.querySelector('.sidebar').classList.add('open');
-  }
   const closeMenu = () => {
     document.querySelector('.sidebar').classList.remove('open');
   }

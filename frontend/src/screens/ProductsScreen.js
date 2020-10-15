@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signin } from '../actions/userActions';
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
+import DndComponent from '../components/DndComponent';
 
 function ProductsScreen(props) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -86,6 +87,7 @@ function ProductsScreen(props) {
                             <label htmlFor="image">Image</label>
                             <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)}></input>
                         </li>
+                        <DndComponent/>
                         <li>
                             <label htmlFor="brand">Brand</label>
                             <input type="text" name="brand" value={brand} id="brand" onChange={(e) => setBrand(e.target.value)}></input>

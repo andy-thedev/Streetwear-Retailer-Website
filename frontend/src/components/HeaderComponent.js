@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link} from 'react-router-dom';
-import {logout} from './actions/userActions';
+import {logout} from '../actions/userActions';
 
 function HeaderComponent(props) {
     const dispatch = useDispatch();

@@ -385,3 +385,18 @@ tbody>tr:nth-child(odd) {
 .profile-orders {
   flex: 3 1 60rem;
 }
+
+/* Drag and Drop */
+
+.dragndrop {
+  flex: 3 1 5rem;
+  flex-wrap: wrap;
+  text-align: center;
+  border: .1rem #c0c0c0 solid;
+}
+
+.dragndrop-image {
+  object-fit: contain;
+  max-width: 30rem;
+  max-height: 30rem;
+}

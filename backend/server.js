@@ -16,7 +16,10 @@ mongoose.connect(mongodbUrl, {
 }).catch(error => console.log(error.reason));
 
 const app = express();
-app.use(bodyParser.json());
+
+app.use(bodyParser.json({limit: '16mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: '16mb', extended: true}));
+
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 
