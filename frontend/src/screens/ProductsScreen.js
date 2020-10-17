@@ -1,3 +1,4 @@
+import { Convert } from 'mongo-image-converter';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -5,6 +6,7 @@ import { saveProduct, listProducts, deleteProduct } from '../actions/productActi
 
 function ProductsScreen(props) {
     const [modalVisible, setModalVisible] = useState(false);
+    const [imageData, setImageData] = useState('');
 
     const [id, setId] = useState('');
     const [name, setName] = useState('');
@@ -54,12 +56,25 @@ function ProductsScreen(props) {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveProduct({
-            _id: id, name, price, image, brand, category, countInStock, description
+            _id: id, name, price, image, imageData, brand, category, countInStock, description
         }));
     }
 
     const deleteHandler = (product) => {
         dispatch(deleteProduct(product._id));
+    }
+
+    const convertImage = async (e) => {
+        try {
+            const convertedImage = await Convert(e.target.files[0])
+            if (convertedImage){
+                setImageData(convertedImage)
+            } else {
+                console.log('File is not jpeg or png')
+            }
+        } catch (error) {
+            console.warn(error.message)
+        }
     }
 
     return (<div className="content content-margined">
@@ -91,7 +106,7 @@ function ProductsScreen(props) {
                             <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)}></input>
                         </li>
                         <div className="dragndrop">
-                            <input type="file" className="dragndrop-input"/>
+                            <input type="file" className="dragndrop-input" onChange={convertImage}/>
                         </div>
                         <li>
                             <label htmlFor="brand">Brand</label>
