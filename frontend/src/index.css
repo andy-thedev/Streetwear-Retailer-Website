@@ -410,3 +410,7 @@ tbody>tr:nth-child(odd) {
   max-width: 30rem;
   max-height: 30rem;
 }
+
+.dragndrop-input {
+  border: none;
+}

@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Convert } from 'mongo-image-converter';
 import { useSelector, useDispatch } from 'react-redux';
-import { useDropzone } from "react-dropzone";
 
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
-import { set } from 'js-cookie';
 
 function ProductsScreen(props) {
-    const [imageData, setImageData] = useState([]);
     const [modalVisible, setModalVisible] = useState(false);
 
     const [id, setId] = useState('');
@@ -53,40 +49,18 @@ function ProductsScreen(props) {
 
     const closeModal = () => {
         setModalVisible(false);
-        setImageData([]);
     }
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveProduct({
-            _id: id, name, price, image, brand, category, countInStock, description, imageData
+            _id: id, name, price, image, brand, category, countInStock, description
         }));
-        setImageData([]);
     }
 
     const deleteHandler = (product) => {
         dispatch(deleteProduct(product._id));
     }
-
-    const {getRootProps, getInputProps} = useDropzone({
-        accept: "image/*",
-        onDrop: (acceptedFiles) => {
-          setImageData(
-            acceptedFiles.map((file) => Object.assign(file, {
-              preview: URL.createObjectURL(file)
-            }))
-          )
-        }
-      })
-
-    const images = imageData.map((file) => (
-    <div key={file.name}>
-        <div>
-        <img src={file.preview} className="dragndrop-image" alt = "preview"/>
-        </div>
-        <div>{file.name}</div>
-    </div>
-    ))
 
     return (<div className="content content-margined">
         <div className="product-header">
@@ -117,11 +91,7 @@ function ProductsScreen(props) {
                             <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)}></input>
                         </li>
                         <div className="dragndrop">
-                            <div {...getRootProps()}>
-                                <input type='file' {...getInputProps()}/>
-                                <p>Drop files/Click to Browse</p>
-                            </div>
-                            <div>{images}</div>
+                            <input type="file" className="dragndrop-input"/>
                         </div>
                         <li>
                             <label htmlFor="brand">Brand</label>
@@ -165,6 +135,7 @@ function ProductsScreen(props) {
                 </thead>
                 <tbody>
                     {products.map((product) => (
+                        
                         <tr key={product._id}>
                             <td>{product._id}</td>
                             <td>{product.name}</td>

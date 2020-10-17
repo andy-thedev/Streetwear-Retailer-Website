@@ -17,7 +17,7 @@ function HeaderComponent(props) {
     return <header className="header">
         <div className="brand">
             <button onClick={openMenu}>&#9776;</button>
-            <Link to="/">Company</Link>
+            <Link to="/"> Company</Link>
         </div>
         <div className="header-links">
             <Link to="/cart">Cart</Link>
