@@ -6,7 +6,6 @@ import { saveProduct, listProducts, deleteProduct } from '../actions/productActi
 
 function ProductsScreen(props) {
     const [modalVisible, setModalVisible] = useState(false);
-    const [imageData, setImageData] = useState('');
 
     const [id, setId] = useState('');
     const [name, setName] = useState('');
@@ -51,13 +50,15 @@ function ProductsScreen(props) {
 
     const closeModal = () => {
         setModalVisible(false);
+        setImage('');
     }
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveProduct({
-            _id: id, name, price, image, imageData, brand, category, countInStock, description
+            _id: id, name, price, image, brand, category, countInStock, description
         }));
+        setImage('');
     }
 
     const deleteHandler = (product) => {
@@ -68,7 +69,7 @@ function ProductsScreen(props) {
         try {
             const convertedImage = await Convert(e.target.files[0])
             if (convertedImage){
-                setImageData(convertedImage)
+                setImage(convertedImage)
             } else {
                 console.log('File is not jpeg or png')
             }
@@ -101,12 +102,14 @@ function ProductsScreen(props) {
                             <label htmlFor="price">Price</label>
                             <input type="text" name="price" value={price} id="price" onChange={(e) => setPrice(e.target.value)}></input>
                         </li>
-                        <li>
-                            <label htmlFor="image">Image</label>
-                            <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)}></input>
-                        </li>
+                        <label htmlFor="image">Image</label>
                         <div className="dragndrop">
                             <input type="file" className="dragndrop-input" onChange={convertImage}/>
+                            {image ? 
+                                <div>
+                                    <img src={image} className="preview-image" alt="preview" ></img>
+                                </div> : ''
+                            }
                         </div>
                         <li>
                             <label htmlFor="brand">Brand</label>
@@ -166,7 +169,6 @@ function ProductsScreen(props) {
                     }
                 </tbody>
             </table>
-
         </div>
     </div>
     );

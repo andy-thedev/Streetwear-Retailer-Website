@@ -357,6 +357,27 @@ input {
   border-radius: .5rem;
 }
 
+.dragndrop {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  flex: 3 1 5rem;
+  flex-wrap: wrap;
+  text-align: center;
+  border: .1rem #c0c0c0 solid;
+  border-radius: .5rem;
+}
+
+.preview-image {
+  object-fit: contain;
+  max-width: 30rem;
+  max-height: 30rem;
+}
+
+.dragndrop-input {
+  width: 30rem;
+  border: none;
+}
+
 /* Products */
 
 .product-header {
@@ -397,20 +418,3 @@ tbody>tr:nth-child(odd) {
 }
 
 /* Drag and Drop */
-
-.dragndrop {
-  flex: 3 1 5rem;
-  flex-wrap: wrap;
-  text-align: center;
-  border: .1rem #c0c0c0 solid;
-}
-
-.dragndrop-image {
-  object-fit: contain;
-  max-width: 30rem;
-  max-height: 30rem;
-}
-
-.dragndrop-input {
-  border: none;
-}
