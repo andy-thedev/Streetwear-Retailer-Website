@@ -82,6 +82,11 @@ a:hover {
 
 /* Home Screen */
 
+.homepage {
+  display: flex;
+  justify-content: center;
+}
+
 .products {
   display: flex;
   justify-content: center;
@@ -94,40 +99,53 @@ a:hover {
   padding: 0;
   flex: 0 1 34rem; /* 0 flex growth, 1 flex shrink, 34rem width*/
   margin: 1rem;
-  height: 50rem;
-  border-bottom: 0.1rem #c0c0c0 solid;
+  height: 43rem;
+  /*border-bottom: 0.1rem #c0c0c0 solid;*/
 }
 
 .product {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 100%;
 }
 
 .product-name {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 100;
+  color: #101010;
+  padding-top: 0.2rem;
+}
+
+.product-name a:hover{
+  color: #101010;
+}
+
+.product-name a:visited{
+  color: #101010;
 }
 
 .product-brand {
-  font-size: 1.2rem;
+  padding-top: 0.2rem;
+  font-size: 1.1rem;
   color: #808080;
 }
 
 .product-price {
-  font-size: 2rem;
-  font-weight: bold;
+  padding-top: 0.2rem;
+  font-size: 1.4rem;
+}
+
+.product-rating {
+  padding-top: 0.2rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .product-image {
   object-fit: contain;
   max-width: 34rem;
   max-height: 34rem;
-}
-
-.product-rating {
-  margin-bottom: 1rem;
 }
 
 /* Sidebar */
@@ -417,4 +435,52 @@ tbody>tr:nth-child(odd) {
   flex: 3 1 60rem;
 }
 
-/* Drag and Drop */
+/* Components */
+
+.categories {
+  padding: 2rem;
+  margin-right: 2rem;
+}
+
+.categories-sections {
+  list-style-type: none;
+  padding: 1rem;
+  margin-left: 1rem;
+}
+
+.categories-title {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.categories-options {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 100;
+  white-space: nowrap;
+  color:#202020;
+}
+
+.categories-options a:hover{
+  color:#202020;
+  text-decoration: underline;
+}
+
+.categories-options a:visited{
+  color:#202020;
+}
+
+.sort {
+  padding: 2rem;
+
+}
+
+.sort-sections {
+  list-style-type: none;
+  padding: 1rem;
+  margin-right: 1.5rem;
+}
+
