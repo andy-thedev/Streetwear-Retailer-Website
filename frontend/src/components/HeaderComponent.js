@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../actions/userActions';
+import CategoryComponent from './CategoryComponent';
 
 function HeaderComponent(props) {
     const dispatch = useDispatch();
@@ -18,11 +19,11 @@ function HeaderComponent(props) {
 
 
     return (
-        <div className="grid-container">
+        <div>
             <header className="header">
                 <div className="brand">
                     <button onClick={openMenu}>&#9776;</button>
-                    <Link to="/"> Company</Link>
+                    <Link to="/"> COMPANY</Link>
                 </div>
                 <div className="header-links">
                     <Link to="/cart">Cart</Link>
@@ -45,17 +46,33 @@ function HeaderComponent(props) {
                 </div>
             </header>
             <aside className="sidebar">
-                <div className="sidebar-title">
-                    <h3>SHOP BY CATEGORY</h3>
-                </div>
+                {
+                    props.userInfo ?
+                        <div>
+                            <div className="sidebar-title">
+                                Hello {props.userInfo.name},
+                            </div>
+                            <div className="sidebar-greeting">
+                                Great to have you back.
+                            </div>
+                        </div>
+                         : 
+                        <div>
+                            <div className="sidebar-title">
+                                Hello there user,
+                            </div>
+                            <div className= "sidebar-greeting">
+                                Please Sign-in.
+                            </div>
+                        </div>
+                }
                 <ul className="sidebar-category-list" id="sidebar">
                     <li>
                         <button className="sidebar-close-button" onClick={closeMenu}>x</button>
-                        <a href="index.html">Pants</a>
                     </li>
-                    <li>
-                        <a href="index.html">Shirts</a>
-                    </li>
+                    <div className="sidebar-category-component">
+                        <CategoryComponent/>
+                    </div>
                 </ul>
             </aside>
         </div>

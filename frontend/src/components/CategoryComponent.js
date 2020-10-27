@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function CategoryComponent(props) {
 
@@ -8,16 +9,16 @@ function CategoryComponent(props) {
                 <div className="categories-title">ALL CATEGORIES</div>
             </li>
             <li className="categories-options">
-                <a href="index.html">ACCESSORIES</a>
+                <Link to="/category/accessories">ACCESSORIES</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">BAGS</a>
+                <Link to="/category/bags">BAGS</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">CLOTHING</a>
+                <Link to="/category/clothing">CLOTHING</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">SHOES</a>
+                <Link to="/category/shoes">SHOES</Link>
             </li>
         </ul>
         <ul className="categories-sections">
@@ -25,22 +26,22 @@ function CategoryComponent(props) {
                 <div className="categories-title">TOPS</div>
             </li>
             <li className="categories-options">
-                <a href="index.html">T-SHIRTS</a>
+                <Link to="/category/T-Shirt">T-SHIRTS</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">SHIRTS</a>
+                <Link to="/category/Shirt">SHIRTS</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">SWEATERS</a>
+                <Link to="/category/Sweater">SWEATERS</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">HOODIES</a>
+                <Link to="/category/Hoodie">HOODIES</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">VESTS</a>
+                <Link to="/category/Vest">VESTS</Link>
             </li>
             <li className="categories-options">
-                <a href="index.html">POLOS</a>
+                <Link to="/category/Polo">POLOS</Link>
             </li>
         </ul>
         <ul className="categories-sections">
