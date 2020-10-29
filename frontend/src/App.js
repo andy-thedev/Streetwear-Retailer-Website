@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import HeaderComponent from './components/HeaderComponent';
 import ProfileScreen from './screens/ProfileScreen';
 import CategoryScreen from './screens/CategoryScreen';
+import SortScreen from './screens/SortScreen';
 
 
 function App() {
@@ -34,7 +35,8 @@ function App() {
             <Route path="/createadmin" component = {RegisterScreen}/>
             <Route path="/users" component={UsersScreen} />
             <Route path="/profile" component={ProfileScreen} userInfo = {userInfo} />
-            <Route path="/category/:category?" component={CategoryScreen} />          
+            <Route path="/category/:category?" component={CategoryScreen} />
+            <Route path="/sort/:sortType?" component={SortScreen} />          
           </div>
         </main>
         <footer className="footer">

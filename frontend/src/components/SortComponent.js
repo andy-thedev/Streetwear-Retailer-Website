@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function SortComponent(props) {
 
@@ -8,13 +9,13 @@ function SortComponent(props) {
                     <div className="categories-title">SORT</div>
                 </li>
                 <li className="categories-options">
-                    <a href="index.html">Latest arrivals</a>
+                    <Link to="/sort/latestarrivals">Latest arrivals</Link>
                 </li>
                 <li className="categories-options">
-                    <a href="index.html">Price: Low to high</a>
+                    <Link to="/sort/pricelowtohigh">Price: Low to high</Link>
                 </li>
                 <li className="categories-options">
-                    <a href="index.html">Price: High to low</a>
+                    <Link to="/sort/pricehightolow">Price: High to low</Link>
                 </li>
             </ul>
             </div>

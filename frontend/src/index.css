@@ -224,6 +224,7 @@ a:hover {
 
 .sidebar-close-button {
   background-color: transparent;
+  border: none;
   color: #f0f0f0;
   width: 3rem;
   height: 3rem;
