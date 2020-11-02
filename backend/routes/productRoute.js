@@ -1,5 +1,4 @@
 import express from 'express';
-import { Convert } from 'mongo-image-converter';
 import Product from '../models/productModel';
 import { isAuth, isAdmin } from '../util';
 
