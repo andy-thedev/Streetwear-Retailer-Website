@@ -21,11 +21,11 @@ function HeaderComponent(props) {
     return (
         <div>
             <header className="header">
-                <div className="brand">
+                <div className="header-left-content">
                     <button onClick={openMenu}>&#9776;</button>
                     <Link to="/"> COMPANY</Link>
                 </div>
-                <div className="header-links">
+                <div className="header-right-content">
                     <Link to="/cart">Cart</Link>
                     {
                         props.userInfo ? props.userInfo.isAdmin ? <Link to="/users">Users</Link> :
