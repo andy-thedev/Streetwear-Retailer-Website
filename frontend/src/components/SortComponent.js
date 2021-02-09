@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function SortComponent(props) {
-
-    return (<div className="sort">
+    return (
+        <div className="sort">
             <ul className="sort-sections">
                 <li className="categories-options">
                     <div className="categories-title">SORT</div>
@@ -18,8 +18,8 @@ function SortComponent(props) {
                     <Link to="/sort/pricehightolow">Price: High to low</Link>
                 </li>
             </ul>
-            </div>
-    )
+        </div>
+    )   
 }
 
 export default SortComponent;

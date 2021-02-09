@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../actions/userActions';
 import CategoryComponent from './CategoryComponent';
+import SortComponent from './SortComponent';
 
 function HeaderComponent(props) {
     const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function HeaderComponent(props) {
                 </div>
             </header>
             <aside className="sidebar">
+                <button className="sidebar-close-button" onClick={closeMenu}>x</button>
                 {
                     props.userInfo ?
                         <div>
@@ -66,13 +68,9 @@ function HeaderComponent(props) {
                             </div>
                         </div>
                 }
-                <ul className="sidebar-category-list" id="sidebar">
-                    <li>
-                        <button className="sidebar-close-button" onClick={closeMenu}>x</button>
-                    </li>
-                    <div className="sidebar-category-component">
-                        <CategoryComponent/>
-                    </div>
+                <ul className="sidebar-list" id="sidebar">
+                    <CategoryComponent/>
+                    <SortComponent/>
                 </ul>
             </aside>
         </div>
