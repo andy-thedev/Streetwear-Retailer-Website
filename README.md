@@ -1,6 +1,6 @@
 # eCommerce Streetwear Retailer Website
 
-This project demonstrates a fully functioning eCommerce luxury and streetwear retailer website utilizing the * *MERN (MongoDB, Express, React, Node) stack* *.
+This project demonstrates a fully functioning eCommerce luxury and streetwear retailer website utilizing the *MERN (MongoDB, Express, React, Node) stack*.
 
 **Visual demonstrations** and **further explanation** may be seen at https://www.wontaejungportfolio.com/mywork
 
