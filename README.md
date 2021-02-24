@@ -1,13 +1,15 @@
-This project demonstrates a fully functioning **eCommerce luxury and streetwear retailer website** utilizing the **MERN (MongoDB, Express, React, Node) stack**.
+# Streetwear Retailer Website
 
-**Visual demonstrations** and **further explanation** may be seen at https://www.wontaejungportfolio.com/mywork
+This project demonstrates a fully functioning eCommerce luxury and streetwear retailer website utilizing the * *MERN (MongoDB, Express, React, Node) stack* *.
+
+**Visual demonstrations** and **further explanation** may be seen at: https://www.wontaejungportfolio.com/mywork
 
 Front-end: ReactJS, HTML, CSS, Redux  
 Back-end: NodeJS, ExpressJS  
 Database: MongoDB  
 Version Control: Git Bash  
 
-**frontend/src:**
+## frontend/src:
 
 /screens:  
 The visual implementations of pages, such as the homepage, cart, login, profile, list of products, etc.
@@ -33,7 +35,7 @@ A state container holding the application's various states
 index.css:  
 The styling specifications of the application
 
-**backend:**
+## backend:
 
 /models:  
 The data model describing the shape and structure of saving documents, such as product/user information
