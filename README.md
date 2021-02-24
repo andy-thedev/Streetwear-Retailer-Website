@@ -9,7 +9,7 @@ Back-end: NodeJS, ExpressJS
 Database: MongoDB  
 Version Control: Git Bash  
 
-## frontend/src:
+## /frontend/src
 
 **/screens:**  
 The visual implementations of pages, such as the homepage, cart, login, profile, list of products, etc.
@@ -35,7 +35,7 @@ A state container holding the application's various states
 **index.css:**  
 The styling specifications of the application
 
-## backend:
+## /backend
 
 **/models:**  
 The data model describing the shape and structure of saving documents, such as product/user information
@@ -52,7 +52,7 @@ Contains commonly used variables in the backend parts of the web application (ie
 **util.js:**  
 Contains utility functions, such as middlewares, admin verification, and tokenization functions
 
-## Features:
+## Features
 
 **Feature 1:**  
 Add to cart functionality utilizing redux state management.  
