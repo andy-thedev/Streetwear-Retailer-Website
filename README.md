@@ -9,33 +9,33 @@ Version Control: Git Bash
 
 frontend/src:
 
-/screens: The visual implementations of pages, such as the homepage, cart, login, profile, list of products, etc.
+  /screens: The visual implementations of pages, such as the homepage, cart, login, profile, list of products, etc.
 
-/components: Potentially reuseable parts of a screen, such as the header, and sort by category sidebar
+  /components: Potentially reuseable parts of a screen, such as the header, and sort by category sidebar
 
-/constants: The action keywords that indicate the state to update in their respective reducers provided in /reducers. ie: product delete request/success/fail
+  /constants: The action keywords that indicate the state to update in their respective reducers provided in /reducers. ie: product delete request/success/fail
 
-/reducers: The reducers that determine the changes to an application's state depending on the action keywords provided. ie: product delete request/success/fail -> update state of product
+  /reducers: The reducers that determine the changes to an application's state depending on the action keywords provided. ie: product delete request/success/fail -> update state of product
 
-/actions: The actions that are called in the screen component, that describe the distinct operations requested by the different functionalities provided in the screen, and dispatch the appropriate state updates provided by /reducers. ie: save new product button clicked -> calls route in backend that completes this operation -> depending on request/success/fail, update the state of relevant elements
+  /actions: The actions that are called in the screen component, that describe the distinct operations requested by the different functionalities provided in the screen, and dispatch the appropriate state updates provided by /reducers. ie: save new product button clicked -> calls route in backend that completes this operation -> depending on request/success/fail, update the state of relevant elements
 
-App.js: The main container component for all other components, such as screens
+  App.js: The main container component for all other components, such as screens
 
-store.js: A state container holding the application's various states
+  store.js: A state container holding the application's various states
 
-index.css: The styling specifications of the application
+  index.css: The styling specifications of the application
 
 backend:
 
-/models: The data model describing the shape and structure of saving documents, such as product/user information
+  /models: The data model describing the shape and structure of saving documents, such as product/user information
 
-/routes: The routes that dictate the operation associated with an HTTP verb, such as GET list of products, DELETE user, etc.
+  /routes: The routes that dictate the operation associated with an HTTP verb, such as GET list of products, DELETE user, etc.
 
-server.js: The configurations of the server utilized by the web application. ie: connections to routes, the database, etc. 
+  server.js: The configurations of the server utilized by the web application. ie: connections to routes, the database, etc. 
 
-config.js: Contains commonly used variables in the backend parts of the web application (ie: Database URL in a dotenv file)
+  config.js: Contains commonly used variables in the backend parts of the web application (ie: Database URL in a dotenv file)
 
-util.js: Contains utility functions, such as middlewares, admin verification, and tokenization functions
+  util.js: Contains utility functions, such as middlewares, admin verification, and tokenization functions
 
 Feature 1:  
 Add to cart functionality utilizing redux state management.  
