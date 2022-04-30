@@ -1,6 +1,8 @@
 # eCommerce Streetwear Retailer Website
 **Visual demonstrations** and **further explanation** may be seen at https://www.wontaejungportfolio.com/mywork
 
+## Credit: https://github.com/basir/node-react-ecommerce
+
 This project demonstrates a fully functioning eCommerce luxury and streetwear retailer website utilizing the *MERN (MongoDB, Express, React, Node) stack*.
 
 Front-end: ReactJS, HTML, CSS, Redux  
